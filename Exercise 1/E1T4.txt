@@ -1,0 +1,15 @@
+Poor Practices
+
+1. S3 Poor Practice
+- The IAM Role has full permissions on the S3 bucket. Here the Least Privilege Principle should be applied.
+- Both of the S3 buckets have public access and encryption disabled. Here we need to remove public access and enable encryption.
+- S3 should not be accessed publicly, but privately.
+
+2. Security Groups Poor Practice
+- WebAppSG is wide to open, everything is open, all traffic. The Instance should be moved to a Private Subnet, and only recieve connections on 443(an SSL connection
+between ELB and Instance.) The Instance should if needed only recieve access from the Bastion Host, through its SG.
+
+
+3. Network Poor Practices
+- Private Subnets are connected to the internet via Internet Gateway. This should be fixed by implementing the NAT Gateway instead, and control egrees rules.
+- Also, Network ACL are wide to open. Here restriction is needed, and Bastion Host solution should be implemented if needed.

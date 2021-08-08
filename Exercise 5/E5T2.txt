@@ -1,0 +1,25 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+
+I choosed CFripper which is a Library and CLI tool for analysing CloudFormation templates and check them for security compliance.
+https://github.com/Skyscanner/cfripper
+
+### Example vulnerability
+EC2SecurityGroupMissingEgressRule: Missing egress rule in NoIngressSecurityGroup means all traffic is allowed outbound. Make this explicit if it is desired configuration
+
+
+
+
+##Scan AMI’s or containers for OS vulnerabilities
+Anchore Engine - A service that analyzes docker images and applies user-defined acceptance policies to allow automated container image validation and certification
+https://github.com/anchore/anchore-engine
+
+### Example vulnerability
+Vulnerability ID        Package                                  Severity          Fix         Vulnerability URL
+CVE-2005-2541           tar-1.26+dfsg-0.1+deb7u1                 Negligible        None        https://security-tracker.debian.org/tracker/CVE-2005-2541
+##Scan an AWS environment for cloud configuration vulnerabilities
+AWS Config provides a detailed view of the resources associated with your AWS account, including how they are configured, how they are related to one another, and how the configurations and their relationships have changed over time.
+
+### Example vulnerability
+securityhub-s3-bucket-logging-enabled-abd3afaf - Checks whether logging is enabled for your S3 buckets.

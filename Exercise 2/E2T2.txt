@@ -1,0 +1,56 @@
+Findings
+
+
+S3
+cand-c3-secret-recipes-568283627415
+- Had two Noncompliant Rules found: One that informs about the encryption not being enabled, and one that informs that logging is not enabled
+- We need to enable encryption and logging
+
+cand-c3-free-recipes-568283627415
+- Had two Noncompliant Rules found: One that informs about the encryption not being enabled, and one that informs that logging is not enabled
+- We need to enable encryption and logging
+
+cand-c3-vpc-flow-logs-568283627415
+- Had two Noncompliant Rules found: One that informs about the encryption not being enabled, and one that informs that logging is not enabled
+- We need to enable encryption and logging
+
+Description of two rules found
+- Checks that your Amazon S3 bucket either has Amazon S3 default encryption enabled or that the S3 bucket policy explicitly denies put-object requests without server side encryption.
+- Checks whether logging is enabled for your S3 buckets.
+
+
+
+
+SG
+WebAppSG
+- Had two Noncompliant Rules found: One that informs that RDP is accessible world wide and needs restriction, and same for SSH
+
+AttackInstanceSG
+- Had one Noncompliant Rule: Found the SSH to no be restricted.
+
+Default
+- Had one Noncompliant Rule: Found that the default security group for VPC is not closed
+
+To fix these we need to restrict IPs and Ports to maximum, only the very necessary or emply strategies like Bastion Host etc, and make sure Default SG for the VPC is closed, through ports and IP or by not accepting another SG that could serve as a hole, meaning that that SG should be restricted properly or removed.
+
+
+
+
+EC2
+Both: Web Service Instance and Attack Instance
+- Had a Noncompliant Rule that found that EC2 is not managed by AWS System Manager, we should fix this by enabling System Manager to be able to manage the instance, and avoid ssh key connection.
+
+Both Volumes of the two Instances
+- Had a Noncompliant Rule that reported that the volumes are not encrypted. We need to implement Encryption .
+
+
+
+LoadBalancer
+- Found a Noncompliant Rule that HTTP to HTTPS redirection is not implemented. We need to implement the port/protocol redirection to fix this.
+
+
+
+IAM
+- Found a Noncompliant Rule that checks if password policy for IAM users prevents password reuse. This should be configured based on Organization Rules for security.
+
+

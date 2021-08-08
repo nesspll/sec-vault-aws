@@ -1,0 +1,10 @@
+
+
+# Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
+1. Limit the SG of the instance to accept SSH connection only from the Bastion Host, or configure it with System Manager, and move it Private Subnet.
+2. Prevent Root over SSH. Setup Instance USER with keys and disable password login.
+
+# Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+1. Limit/modify the policy in the role we are using, to only have the permissions on the s3 free recipe bucket as a resource, permission we need, the role should not have access to everything.
+2. Also enable encryption for the secret recipe bucket. Make it private, no need for public policy.
+3. Also Access Points can be used to limit to a specific VPC access point.

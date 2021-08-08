@@ -1,0 +1,21 @@
+Amazon GuardDuty is a continuous security monitoring service that analyzes and processes the following data sources: VPC Flow Logs, AWS CloudTrail event logs, and DNS logs.
+It uses threat intelligence feeds, such as lists of malicious IP addresses and domains, and machine learning to identify unexpected and potentially unauthorized and malicious activity within your AWS environment.
+
+
+
+
+
+Findings from GuardDuty
+
+UnauthorizedAccess:EC2/SSHBruteForce
+i-06215d8691f47a6d7 is performing SSH brute force attacks against 10.192.10.94.
+Brute force attacks are used to gain unauthorized access to your instance by guessing the SSH password.
+
+10.192.11.115 is performing SSH brute force attacks against i-0d3d031614cca409a.
+Brute force attacks are used to gain unauthorized access to your instance by guessing the SSH password.
+
+
+So, GuardDuty uses CloudTrail logs, VPC Flow Logs, and DNS Logs
+
+In this case it used VPC Flow Logs which were configured to send logs to an S3 bucket, VPC Flow Logs can be configured
+to send logs to CloudTrail also. See the images for more details, where it is explaind the source of connection/attacks
